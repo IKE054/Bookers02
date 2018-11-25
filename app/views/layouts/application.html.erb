@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tags %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookers</title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+</head> 
+
+<body>
+
+
+<body>
+  
+  <div class="container relative">
+        <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
+<nav class="navbar navbar-fixed-top navbar-inverse">
+
+    <nav class="nav navbar-nav navbar-left">
+      <span>Bookers</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-home home" href="/"> Home</a></li>
+          <li><a class="glyphicon glyphicon-link about" href="/home/about"> About</a></li>
+          <li><a class="glyphicon glyphicon-edit sign_up" href="/users/sign_up"> sign up</a></li>
+          <li><a class="glyphicon glyphicon-log-in sign_in" href="/users/sign_in"> login</a></li>
+      </ul>
+    </nav>
+  
+</nav>
+</nav>
+</div>
+ <%= yield %>
+</body>
+</html>

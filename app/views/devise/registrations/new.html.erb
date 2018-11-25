@@ -1,0 +1,37 @@
+<div class="container">
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+
+<div class="field">
+  <%= f.label :name %><br />
+  <input autofocus="autofocus" class="name" type="text" name="user[name]" id="user_name">
+</div>
+
+
+<div class="field">
+  <%= f.label :email %><br />
+  <input autofocus="autofocus" class="email" type="email" value="" name="user[email]" id="user_email">
+</div>
+
+<div class="field">
+  <%= f.label :password %>
+  <% if @minimum_password_length %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <input autocomplete="off" class="password" type="password" name="user[password]" id="user_password">
+</div>
+
+<div class="field">
+  <%= f.label :password_confirmation %><br />
+  <input autocomplete="off" class="passwpassword_confirm" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+</div>
+
+<div class="actions">
+  <input type="submit" name="commit" value="Sign up" class="btn btn-success" data-disable-with="Sign up">
+</div>
+<a href="/users/sign_in">Log in</a>
+</div>
+<% end %>
+
