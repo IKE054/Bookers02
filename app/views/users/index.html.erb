@@ -1,0 +1,31 @@
+  <div class="container">
+    <p id="notice">Welcome! You have signed up successfully.</p>
+    <%= render 'users/user_new', user: @user, book: @book %>
+
+
+    <div class="col-xs-9">
+      <h2>Users</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <% @users.each do |user| %>
+
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= user.name %></td>
+            <td><%= link_to 'Show', "users/#{user.id}" ,:class => "user_#{user.id}" %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+
+    </div>
+  </div>

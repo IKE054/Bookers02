@@ -1,0 +1,25 @@
+	<div class="col-xs-9">
+    <h2>Books</h2>
+
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr> 
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <% books.each do |book| %>
+
+      <tbody>
+        <tr>
+          <td>本文1</td>
+          <td><%= book.title %></td>
+          <td><%= book.opinion %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>

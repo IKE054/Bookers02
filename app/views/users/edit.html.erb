@@ -1,0 +1,34 @@
+<div class="body">
+  <div class="container">
+
+    <p id="notice"></p>
+
+    <h2>User info</h2>
+    <%= form_for(@user) do |f| %>
+
+    <form class="edit_user">
+
+
+      <div class="field">
+        <%= f.label :Name %>
+        <%= f.text_field :name, class:"name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Image %>
+        <%= f.attachment_field :image, class:"user_image" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Introduction %>
+        <%= f.text_area :introduction, class:"introduction" %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit 'Update User' %>
+      </div>
+      <% end %>
+    </form>
+  </div>
+</div>

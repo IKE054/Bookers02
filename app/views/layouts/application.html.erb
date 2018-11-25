@@ -13,29 +13,34 @@
 </head> 
 
 <body>
+  <header>
+    <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
+      <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+          <nav class="nav navbar-nav navbar-left">
+            <span>Bookers</span>
+          </nav>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+              <li><%= link_to "Home", user_path(current_user.id), :class => 'glyphicon glyphicon-home home' %></li>
+              <li><%= link_to "Users", users_path, :class => 'glyphicon glyphicon-user users' %></li>
+              <li><%= link_to "Books", books_path, :class => 'glyphicon glyphicon-book books' %></li>
+              <li><%= link_to "Log-out", destroy_user_session_path, :class => 'glyphicon glyphicon-log-out logout', method: :delete %></li>
 
+              <% else %>
+              <li><%= link_to "Home", root_path, :class => 'glyphicon glyphicon-home home' %></li>
+              <li><%= link_to 'About', root_path, :class => 'glyphicon glyphicon-link about' %></li>
+              <li><%= link_to 'sign up', new_user_registration_path, :class => 'glyphicon glyphicon-edit sign_up' %></li>
+              <li><%= link_to 'login', new_user_session_path, :class => 'glyphicon glyphicon-log-in sign_in' %></li>
+              <% end %>
 
-<body>
-  
-  <div class="container relative">
-        <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
-<nav class="navbar navbar-fixed-top navbar-inverse">
-
-    <nav class="nav navbar-nav navbar-left">
-      <span>Bookers</span>
+            </ul>
+          </nav>
+        </div>
+      </nav>
     </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li><a class="glyphicon glyphicon-home home" href="/"> Home</a></li>
-          <li><a class="glyphicon glyphicon-link about" href="/home/about"> About</a></li>
-          <li><a class="glyphicon glyphicon-edit sign_up" href="/users/sign_up"> sign up</a></li>
-          <li><a class="glyphicon glyphicon-log-in sign_in" href="/users/sign_in"> login</a></li>
-      </ul>
-    </nav>
-  
-</nav>
-</nav>
-</div>
- <%= yield %>
+  </header>
+  <%= yield %>
 </body>
 </html>

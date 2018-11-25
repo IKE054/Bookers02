@@ -1,2 +1,5 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+	<p id="notice">Welcome! You have signed up successfully.</p>
+	<%= render 'users/user_new', user: @user, book: @book %>
+	<%= render 'books/list', user: @user, book: @book, books: @books %>
+</div>
