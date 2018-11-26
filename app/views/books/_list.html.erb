@@ -12,10 +12,10 @@
       </thead>
 
       <% books.each do |book| %>
-
+      <% user.id = book.user_id %>
       <tbody>
         <tr>
-          <td>本文1</td>
+          <td><%= attachment_image_tag user, :image, :fill, 40, 40, fallback: "no_image.jpg", class: "profile-thumb" %></td>
           <td><%= book.title %></td>
           <td><%= book.opinion %></td>
         </tr>
