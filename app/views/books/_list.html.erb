@@ -17,7 +17,7 @@
         <tr>
           <td><%= attachment_image_tag user, :image, :fill, 40, 40, fallback: "no_image.jpg", class: "profile-thumb" %></td>
           <td> 
-            <%= link_to "/users/#{user.id}/books/#{book.id}", class: "book_#{book.id}" do %>
+            <%= link_to book_path(book.id), class: "book_#{book.id}" do %>
           <%= book.title %>
           <% end %></td>
           <td><%= book.opinion %></td>

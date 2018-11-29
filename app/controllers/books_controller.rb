@@ -5,23 +5,29 @@ class BooksController < ApplicationController
 	end
 
 	def create
-		user = User.find(params[:user_id])
-		book = Book.new(book_params)
-    	book.user_id = user.id
-    	book.save
-    	redirect_to "/users/#{user.id}/books/#{book.id}/"
+		@book = Book.new(book_params)
+    	@book.user_id = current_user.id
+    	if @book.save
+    		flash[:notice] = "data create successfully"
+    		redirect_to book_path(@book)
+    		# redirect_to books_path
+    	else
+			@user = current_user
+	  		@books = Book.all
+			render  :index
+		end
 	end
 
 	def index
-		@user = User.find(current_user.id)
+		@user = current_user
 		@book = Book.new
   		@books = Book.all
 	end
 
 	def show
-		@user = User.find(params[:user_id])
-		@new = Book.new
-		@book = Book.find(params[:id])
+		@user = current_user
+		@book = Book.new
+		@detail = Book.find(params[:id])
 		@books = Book.where(:user_id => @user.id)
 	end
 
@@ -32,7 +38,7 @@ class BooksController < ApplicationController
 	def update
 		book = Book.find(params[:id])
 		if book.update(book_params)
-			flash[:notice] = "successfully"
+			flash[:notice] = "data update successfully"
 			redirect_to book_path(book.id)
 		else
 			redirect_to book_path(book.id)

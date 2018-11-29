@@ -6,6 +6,13 @@
     <h2>User info</h2>
     <%= form_for(@user) do |f| %>
 
+    <% if @user.errors.any? %>
+        <%= @user.errors.count %>errors prohibited this obj from being saved:<br>
+        <% @user.errors.full_messages.each do |message| %>
+            ・<%= message %><br>
+        <% end %>
+    <% end %>
+
     <form class="edit_user">
 
       <div class="field">
@@ -23,10 +30,11 @@
         <%= f.text_area :introduction, class:"introduction" %>
       </div>
 
-
       <div class="actions">
         <%= f.submit 'Update User' %>
       </div>
+
+
       <% end %>
     </form>
   </div>

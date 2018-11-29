@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   # get 'books/top'
 
   devise_for :users
-  resources :users, only: [:show, :edit, :update, :index] do
-  	  resources :books, only: [:create, :edit, :show, :update, :destroy]
-  	end
+  resources :users, only: [:show, :edit, :update, :index] 
+  resources :books
 
-  resources :books, only: [:index]
 
   root 'users#top'
   get '/about' => 'users#about'
