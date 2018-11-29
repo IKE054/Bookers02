@@ -6,15 +6,15 @@
 
 	<div class="field">
 		<%= f.label :email %><br />
-		<input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
+		<input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" class="email">
 	</div>
 
 	<div class="actions">
 		<input type="submit" name="commit" value="Send me reset password instructions" class="btn btn-danger" data-disable-with="Send me reset password instructions">
 	</div>
-	<a href="/users/sign_in">Log in</a>
+	<a href="/users/sign_in" class="sign_in">Log in</a>
 	<br>
-	<a href="/users/sign_up">Sign up</a>
+	<a href="/users/sign_up" class="sign_up">Sign up</a>
 </div>
 <% end %>
 

@@ -1,6 +1,11 @@
 
 
 <div class="col-xs-3">
+	<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+	<% end %>
 	<h2>User info</h2>
 	<table class="table">
 		<tbody>
@@ -17,9 +22,19 @@
 		</tbody>
 	</table>
 
-	<div class="row">
-		<%= link_to '', edit_user_path(user), :class => 'col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{id}' %>
-	</div>
+	<% if @user.id == current_user.id %>
+		<div class="row">
+			<%= link_to edit_user_path(user), :class => "edit_user_#{@user.id}" do %>
+			<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></p>
+			<% end %>
+		</div>
+	<% else %>
+		<div class="row">
+			<%= link_to user_path(user), :class => "edit_user_#{@user.id}" do %>
+			<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></p>
+			<% end %>
+		</div>
+	<% end %>
 
 	<h2>New book</h2>
 	<div class="new_book">
@@ -31,7 +46,7 @@
 
 		<div class="field row">
 			<%= f.label :Opinion %>
-			<%= f.text_area :opinion, class:"col-xs-12 book_opinion" %>
+			<%= f.text_area :opinion, class:"col-xs-12 book_body" %>
 		</div>
 
 		<div class="actions row">

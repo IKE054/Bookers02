@@ -1,5 +1,9 @@
 <div class="container">
-	<p id="notice">Welcome! You have signed up successfully.</p>
+	<% if flash[:notice] %>
+		<div class="flash">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
 	<%= render 'users/user_new', user: @user, book: @book %>
 	<%= render 'books/list', user: @user, books: @books %>
 </div>

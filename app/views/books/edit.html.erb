@@ -1,0 +1,52 @@
+<div class="body">
+      <div class="container">
+        
+        <p id="notice"></p>
+      
+      	<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>Editing Book</h1>
+  <!-- <div class='col-md-3 col-md-offset-3'>
+  </div> -->
+  <%= form_for(@book) do |f| %>
+  <form class="edit_book" id="edit_book_2636" action="/books/2636" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+        <div class="field row">
+        <%= f.label :Title %>
+        <%= f.text_field :title, class:"title" %>
+      </div>
+
+      <div class="field row">
+        <%= f.label :Opinion %>
+        <%= f.text_field :opinion, class:"opinion" %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit 'Update Book' %>
+      </div>
+      <% end %>
+
+      </form>
+  	
+		<form class="edit_book" id="edit_book_2636" action="/books/2636" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="dSX0ZFBwx0l7/VVQVZl0TM0RgB8flCqdMryi9nmvVJzEDFUHlI5mSN4Rmjw/+7gmX6EoXCrf5B6U3fU5/RZmoA==">
+  <div class="field row">
+    <label for="book_title">Title</label>
+    <input class="col-xs-12 book_title" type="text" value="test" name="book[title]" id="book_title">
+  </div>
+
+  <div class="field row">
+    <label for="book_opinion">Opinion</label>
+    <textarea class="col-xs-12 book_body" name="book[body]" id="book_body">test</textarea>
+  </div>
+
+  <div class="actions row">
+    <input type="submit" name="commit" value="Update Book" class="btn btn-primary col-xs-12" data-disable-with="Update Book">
+  </div>
+</form>
+		<a class="book_2636" href="/books/2636">Show</a> |
+		<a class="back" href="/books">Back</a>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+      </div>
+    </div>

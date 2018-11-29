@@ -1,7 +1,5 @@
   <div class="container">
-    <p id="notice">Welcome! You have signed up successfully.</p>
     <%= render 'users/user_new', user: @user, book: @book %>
-
 
     <div class="col-xs-9">
       <h2>Users</h2>
@@ -16,7 +14,6 @@
         </thead>
 
         <% @users.each do |user| %>
-
         <tbody>
           <tr>
             <td><%= attachment_image_tag user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "profile-thumb" %></td>

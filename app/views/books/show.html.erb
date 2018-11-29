@@ -1,0 +1,37 @@
+<div class="body">
+      <div class="container">
+    <%= render 'users/user_new', user: @user, book: @book %>
+  <div class="col-xs-9">
+		<h2>Book detail</h2>
+		<table class="table">
+		  <tbody><tr>
+        <td>
+          <%= link_to user_path, class: "user_#{@user.id}" do %>
+          <%= attachment_image_tag @user, :image, :fill, 60, 60, fallback: "no_image.jpg", class: "profile-thumb" %><br>
+          <%= @user.name %>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to "/users/#{@user.id}/books/#{@book.id}", class: "book_#{@book.id}" do %>
+          <%= @book.title %>
+          <% end %></td>
+
+          <td>
+          <%= @book.opinion %>
+          </td>
+            <% if @user.id == current_user.id %>
+          <td> <%= link_to "/users/#{@user.id}/books/#{@book.id}/edit", class: "edit_book_#{@book.id}}" do %>
+            <p class="btn-sm btn-success">Edit</p>
+            <% end %>
+          </td>
+
+          <td><%= link_to 'Destroy', "/users/#{@user.id}/books/#{@book.id}", class:"btn-sm btn-danger destroy_book_#{@book.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    </tbody></table>
+
+  </div>
+</div>
+      </div>
+    </div>
