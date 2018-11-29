@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 	 before_action :authenticate_user!, only: [:show, :edit]#deviseのメソッド。ログイン未認証の場合、rootパスへリダイレクトする
 
+  def about
+  end
+
   def show
 	@user = User.find(params[:id])
 	@book = Book.new

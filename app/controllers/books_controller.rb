@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-	 before_action :authenticate_user! #deviseのメソッド。ログイン未認証の場合、rootパスへリダイレクトする
+	 # before_action :authenticate_user! #deviseのメソッド。ログイン未認証の場合、rootパスへリダイレクトする
 
 	def new
 	end
