@@ -7,7 +7,7 @@
 		  <tbody><tr>
         <td>
           <%= link_to user_path(@user.id), class: "user_#{@user.id}" do %>
-          <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "profile-thumb" %><br>
+          <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "profile-thumb", size: "100x100" %><br>
           <%= @user.name %>
           <% end %>
         </td>
