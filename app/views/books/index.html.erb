@@ -1,14 +1,19 @@
 <div class="col-xs-12 container">
 	<div>
-	<%= form_for(@book) do |f| %>
-    	<% if @book.errors.any? %>
-        	<h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3><br>
-        	<% @book.errors.full_messages.each do |message| %>
-         	   ・<%= message %><br>
-        	<% end %>
-    	<% end %>
-    <% end %>
-    </div>
+		<%= form_for(@book) do |f| %>
+		<div class="error_explanation">
+			<% if @book.errors.any? %>
+			<ul>
+				<h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+				<% @book.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+	
 	<%= render 'users/user_new', user: @user, book: @book %>
-	<%= render 'books/list', user: @user, books: @books %>
+	<%= render 'books/list', user: @user, users: @users, books: @books %>
 </div>

@@ -1,52 +1,39 @@
 <div class="body">
-      <div class="container">
+  <div class="container">
+   <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+      <h1>Editing Book</h1>
 
-      	<div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<h1>Editing Book</h1>
-  <!-- <div class='col-md-3 col-md-offset-3'>
-  </div> -->
-  <%= form_for(@book) do |f| %>
-<!--   <form class="edit_book" id="edit_book_2636" action="/books/2636" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
- -->   <div class=" field row">
-        <%= f.label :Title %><br>
-        <%= f.text_field :title, class: "col-xs-12 book_title" %>
-      </div>
+    <div class="error_explanation">
+      <% if @book.errors.any? %>
+      <ul>
+        <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+        <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    </div>
+  
 
-      <div class="field row">
-        <%= f.label :Opinion %><br>
-        <%= f.text_area :opinion, class: "col-xs-12 book_body" %>
-      </div>
+      <%= form_for(@book) do |f| %>
 
-
-      <div class="actions">
-        <%= f.submit 'Update Book', class: "btn btn-primary col-xs-12" %>
-      </div>
-      <% end %>
-          <%= link_to 'Show', book_path(@book.id), class: "book_#{@book.id}" %> |
-          <%= link_to 'Back', books_path, class: "back" %>
-
-<!--       </form>
- -->  	
-<!-- 		<form class="edit_book" id="edit_book_2636" action="/books/2636" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="dSX0ZFBwx0l7/VVQVZl0TM0RgB8flCqdMryi9nmvVJzEDFUHlI5mSN4Rmjw/+7gmX6EoXCrf5B6U3fU5/RZmoA==">
-  <div class="field row">
-    <label for="book_title">Title</label>
-    <input class="col-xs-12 book_title" type="text" value="test" name="book[title]" id="book_title">
+  <div class=" field row">
+    <%= f.label :Title %><br>
+    <%= f.text_field :title, class: "col-xs-12 book_title" %>
   </div>
 
   <div class="field row">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="col-xs-12 book_body" name="book[body]" id="book_body">test</textarea>
+    <%= f.label :Opinion %><br>
+    <%= f.text_area :opinion, class: "col-xs-12 book_body" %>
   </div>
 
-  <div class="actions row">
-    <input type="submit" name="commit" value="Update Book" class="btn btn-primary col-xs-12" data-disable-with="Update Book">
+
+  <div class="actions">
+    <%= f.submit 'Update Book', class: "btn btn-primary col-xs-12" %>
   </div>
-</form>
-		<a class="book_2636" href="/books/2636">Show</a> |
-		<a class="back" href="/books">Back</a>
-    </div>
-    <div class="col-md-3"></div>
-</div> -->
-      </div>
-    </div>
+  <% end %>
+  <%= link_to 'Show', book_path(@book.id), class: "book_#{@book.id}" %> |
+  <%= link_to 'Back', books_path, class: "back" %>
+</div>
+</div>

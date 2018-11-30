@@ -4,14 +4,20 @@
     <p id="notice"></p>
 
     <h2>User info</h2>
-    <%= form_for(@user) do |f| %>
 
-    <% if @user.errors.any? %>
-        <%= @user.errors.count %>errors prohibited this obj from being saved:<br>
+    <div class="error_explanation">
+      <% if @user.errors.any? %>
+      <ul>
+        <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
         <% @user.errors.full_messages.each do |message| %>
-            ・<%= message %><br>
+        <li><%= message %></li>
         <% end %>
+      </ul>
     <% end %>
+    </div>
+
+
+  <%= form_for(@user) do |f| %>
 
     <form class="edit_user">
 

@@ -12,17 +12,23 @@
       </thead>
 
       <% books.each do |book| %>
-      <% user.id = book.user_id %>
+      <% users.each do |users| %>
       <tbody>
         <tr>
-          <td><%= attachment_image_tag user, :image, :fill, 40, 40, fallback: "no_image.jpg", class: "profile-thumb" %></td>
-          <td> 
+          <% if users.id == book.user_id %>
+          <td><%= link_to user_path(users.id), class: "user_#{users.id}" do %>
+            <%= attachment_image_tag users, :image, :fill, 60, 60, fallback: "no_image.jpg", class: "profile-thumb" %>
+            <% end %>
+          </td>
+          <td>
             <%= link_to book_path(book.id), class: "book_#{book.id}" do %>
-          <%= book.title %>
-          <% end %></td>
-          <td><%= book.opinion %></td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
-  </div>
+            <%= book.title %>
+            <% end %></td>
+            <td><%= book.opinion %></td>
+            <% end %>
+          </tr>
+        </tbody>
+        <% end %>
+        <% end %>
+      </table>
+    </div>
