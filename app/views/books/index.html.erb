@@ -1,4 +1,4 @@
-<div class="col-xs-12 container">
+
 	<div>
 		<%= form_for(@book) do |f| %>
 		<div class="error_explanation">
@@ -13,7 +13,7 @@
 		<% end %>
 		<% end %>
 	</div>
-	
+	<div class="container">
 	<%= render 'users/user_new', user: @user, book: @book %>
 	<%= render 'books/list', user: @user, users: @users, books: @books %>
-</div>
+	</div>
